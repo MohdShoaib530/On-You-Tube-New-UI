@@ -34,7 +34,7 @@ export default function VideoCard({ video }) {
               </h3>
 
               <p className="text-xs text-gray-500 mt-0.5 flex gap-1 items-center">
-                 {channelName} <FaCircleCheck className="text-blue-700 w-2.5"/>
+                 {channelName} <FaCircleCheck className="text-gray-400 w-2.5"/>
               </p>
 
               <p className="text-xs text-gray-400 font-medium">
@@ -49,14 +49,14 @@ export default function VideoCard({ video }) {
           {video.tags?.slice(0, 2).map((tag, i) => (
             <span
               key={i}
-              className="text-[11px] bg-blue-50 px-2 py-0.5 rounded-md text-blue-900  font-medium"
+              className="text-[11px] bg-[#eceff1] px-2 py-0.5 rounded text-[#797677]  font-medium"
             >
               {tag}
             </span>
           ))}
 
           {video.tags?.length > 2 && (
-            <span className="text-[11px] bg-blue-50 px-2 py-0.5 rounded-md text-blue-900 font-medium">
+            <span className="text-[11px] bg-[#eceff1] px-2 py-0.5 rounded text-[#797677] font-medium">
               +{video.tags.length - 2}
             </span>
           )}
@@ -89,7 +89,7 @@ export default function VideoCard({ video }) {
 
             {/* Channel */}
             <p className="text-sm text-gray-500 mt-1 flex items-center gap-1 font-medium font-base">
-              {channelName} <FaCircleCheck className="text-blue-700 w-2.5"/>
+              {channelName} <FaCircleCheck className="text-gray-400 w-2.5"/>
             </p>
 
             {/* Views */}
@@ -102,14 +102,14 @@ export default function VideoCard({ video }) {
               {video.tags?.slice(0, 2).map((tag, i) => (
                 <span
                   key={i}
-                  className="text-[12px] bg-blue-50 px-2 py-0.5 rounded-md text-blue-900 font-medium"
+                  className="text-[12px] bg-[#eceff1] px-2 py-0.5 rounded text-[#797677] font-medium"
                 >
                   {tag}
                 </span>
               ))}
 
               {video.tags?.length > 2 && (
-                <span className="text-[12px] bg-blue-100 px-2 py-0.5 rounded-md text-gray-600 font-medium">
+                <span className="text-[12px] bg-[#eceff1] px-2 py-0.5 rounded text-[#797677] font-medium">
                   +{video.tags.length - 2}
                 </span>
               )}
