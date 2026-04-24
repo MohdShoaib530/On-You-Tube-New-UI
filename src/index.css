@@ -1,1 +1,24 @@
 @import "tailwindcss";
+
+@plugin "daisyui";
+
+
+/* Default font system */
+:root {
+  --font-english: "Inter", system-ui, sans-serif;
+  --font-hindi: "Noto Sans Devanagari", system-ui, sans-serif;
+}
+
+/* Utility classes */
+.font-en {
+  font-family: var(--font-english);
+}
+
+.font-hi {
+  font-family: var(--font-hindi);
+}
+
+/* Smart default (auto fallback) */
+.font-base {
+  font-family: var(--font-english), var(--font-hindi);
+}

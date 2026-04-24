@@ -4,8 +4,11 @@ import {
   CHANNEL_OPTIONS,
   YEAR_OPTIONS,
 } from "../constants/filters.js";
-import { Check, ChevronDown } from "lucide-react";
 import { useRef, useEffect } from "react";
+import { IoIosArrowDown } from "react-icons/io";
+import { FaCheck } from "react-icons/fa6";
+import { CiCalendar } from "react-icons/ci";
+import { LuUsers } from "react-icons/lu";
 
 const groupedChannels = {
   hindi: CHANNEL_OPTIONS.filter((c) => c.language === "hindi"),
@@ -53,13 +56,13 @@ const Filters = ({
               <button
                 key={item.label}
                 onClick={() => setOrderBy(item.value)}
-                className={`px-4 py-2 border rounded-[5px] text-sm font-medium ${
+                className={`btn btn-outline rounded-2xl border-gray-300 ${
                   isActive
                     ? "bg-black text-white"
-                    : "bg-white text-gray-700 hover:bg-gray-100"
+                    : ""
                 }`}
               >
-                {item.label}
+                {item.label} 
               </button>
             );
           })}
@@ -72,10 +75,10 @@ const Filters = ({
               setTempChannels(channels); //  syncing
               setIsOpen(true);
             }}
-            className="px-4 py-2 rounded-[5px] border bg-white text-sm font-medium flex items-center gap-2"
+            className="btn btn-outline rounded-2xl border-gray-300"
           >
-            Channel ({channels.length})
-            <ChevronDown size={16} />
+            <LuUsers size={15} /> Channel ({channels.length})
+            <IoIosArrowDown size={15} />
           </button>
 
           {/* Drawer */}
@@ -110,7 +113,7 @@ const Filters = ({
                       className="flex justify-between py-3 border-b cursor-pointer"
                     >
                       <span>{item.label}</span>
-                      {isSelected && <Check size={16} />}
+                      {isSelected && <FaCheck size={16} />}
                     </div>
                   );
                 })}
@@ -137,7 +140,7 @@ const Filters = ({
                       className="flex justify-between py-3 border-b cursor-pointer hover:bg-gray-100 px-2"
                     >
                       <span>{item.label}</span>
-                      {isSelected && <Check size={16} />}
+                      {isSelected && <FaCheck size={16} />}
                     </div>
                   );
                 })}
@@ -164,7 +167,7 @@ const Filters = ({
                       className="flex justify-between py-3 border-b cursor-pointer hover:bg-gray-100 px-2"
                     >
                       <span>{item.label}</span>
-                      {isSelected && <Check size={16} />}
+                      {isSelected && <FaCheck size={16} />}
                     </div>
                   );
                 })}
@@ -197,10 +200,10 @@ const Filters = ({
         <div ref={yearRef} className="relative">
           <button
             onClick={() => setIsYearOpen(!isYearOpen)}
-            className="px-4 rounded-[5px] py-2 border text-sm bg-white flex items-center gap-2 font-medium"
+            className="btn btn-outline rounded-2xl border-gray-300"
           >
-            {year || "Year"}
-            <ChevronDown size={16} />
+            <CiCalendar size={20} /> {year || "Year"}
+            <IoIosArrowDown size={15} />
           </button>
 
           {isYearOpen && (
@@ -215,7 +218,7 @@ const Filters = ({
                   className="px-4 py-3 border-b cursor-pointer flex justify-between"
                 >
                   {item.label}
-                  {year === item.value && <Check size={16} />}
+                  {year === item.value && <FaCheck size={16} />}
                 </div>
               ))}
             </div>

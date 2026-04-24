@@ -4,7 +4,8 @@ import { categories } from "../constants/categories.js";
 import Categories from "../components/Categories.jsx";
 import Filters from "../components/Filters.jsx";
 import VideoCard from "../components/VideoCard.jsx";
-import { TvMinimalPlay } from "lucide-react";
+import { LuTvMinimalPlay } from "react-icons/lu";
+import { FaYoutube } from "react-icons/fa";
 
 function HomePage() {
   const [loading, setLoading] = useState(false);
@@ -51,8 +52,8 @@ function HomePage() {
       {/* Header */}
       <div className="flex items-center justify-between ">
         {/* Left Title */}
-        <h1 className="text-2xl fotn-semibold leading-none tracking-normal lg:text-3xl lg:font-bold font-bold text-gray-800">
-          On YouTube
+        <h1 className="text-2xl flex gap-1 sm:gap-2 items-center fotn-semibold leading-none tracking-normal lg:text-3xl lg:font-bold font-bold text-gray-800">
+          <FaYoutube className="text-red-600 text-4xl"/> On YouTube
         </h1>
 
         {/* Right Language Filters */}
@@ -105,7 +106,7 @@ function HomePage() {
         <div className="flex flex-col gap-4 md:grid md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 md:gap-x-4 md:gap-y-6">
           {videos.length === 0 && !loading ? (
             <div className="col-span-full flex flex-col items-center justify-center py-20 text-gray-500 text-center">
-              <TvMinimalPlay size={40} strokeWidth={2.75} />
+              <LuTvMinimalPlay size={40} strokeWidth={2.75} />
 
               <p className="text-lg font-medium mt-3">No videos found</p>
 

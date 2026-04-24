@@ -1,19 +1,27 @@
+import { FaCircleCheck } from "react-icons/fa6";
+
 export default function VideoCard({ video }) {
-  // console.log('video',video);
+  const channelName =
+    video.channel === "YTH - Main"
+      ? "आचार्य प्रशांत"
+      : video.channel === "English-Main"
+      ? "Acharya Prashant"
+      : video.channel;
+
   return (
-    <div className="w-full">
-      {/* screen (< md) */}
-      <div className="w-full md:hidden border-b border-gray-300 pb-4">
+    <div className="group w-full h-full flex flex-col">
+      {/* 🔹 MOBILE (< md) */}
+      <div className="md:hidden border-b border-gray-200 py-4">
         <div className="flex gap-3">
           {/* Thumbnail */}
-          <div className="relative w-36 h-20 shrink-0 overflow-hidden rounded-md">
+          <div className="relative w-36 h-20 shrink-0 overflow-hidden rounded-lg bg-gray-100">
             <img
               src={video.thumbnail}
               alt={video.title}
-              className="w-full h-full object-cover "
+              className="w-full h-full object-cover"
             />
 
-            <span className="font-semibold absolute bottom-1 right-1 bg-black/80 text-gray-300 text-[12px] px-1.5 py-[1px] rounded">
+            <span className="absolute bottom-1.5 right-1.5 bg-black/80 text-white text-[11px] px-1.5 py-[2px] rounded">
               {video.duration}
             </span>
           </div>
@@ -21,51 +29,46 @@ export default function VideoCard({ video }) {
           {/* Content */}
           <div className="flex flex-col justify-between flex-1">
             <div>
-              {/* Title */}
-              <h3 className="text-sm font-medium leading-snug line-clamp-2 text-gray-900">
+              <h3 className="text-sm font-semibold leading-snug line-clamp-2 text-gray-900">
                 {video.title}
               </h3>
 
-              {/* Channel */}
-              <p className="text-sm text-gray-500">
-                {video.channel === "YTH - Main"
-                  ? "आचार्य प्रशांत"
-                  : video.channel === "English-Main"
-                    ? "Acharya Prashant"
-                    : video.channel}
+              <p className="text-xs text-gray-500 mt-0.5">
+                {channelName}
               </p>
 
-              {/* Views */}
-              <p className="text-xs text-gray-500 font-medium">
-                {video.views} {video.publishedAt}
+              <p className="text-xs text-gray-400 font-medium">
+                {video.views} • {video.publishedAt}
               </p>
             </div>
           </div>
         </div>
 
         {/* Tags */}
-        <div className="flex flex-wrap gap-2 mt-2">
+        <div className="flex flex-wrap gap-2 mt-3">
           {video.tags?.slice(0, 2).map((tag, i) => (
             <span
               key={i}
-              className="text-xs bg-[#eceff1] px-2 py-0.5 rounded text-gray-600 font-medium"
+              className="text-[11px] bg-gray-100 px-2 py-0.5 rounded-md text-gray-600 font-medium"
             >
               {tag}
             </span>
           ))}
 
           {video.tags?.length > 2 && (
-            <span className="text-xs bg-gray-200 px-2 py-0.5 rounded text-gray-700 font-medium">
+            <span className="text-[11px] bg-gray-200 px-2 py-0.5 rounded-md text-gray-700 font-medium">
               +{video.tags.length - 2}
             </span>
           )}
         </div>
       </div>
 
-      {/* Screen (≥ md) */}
-      <div className="hidden md:block">
-        {/* Thumbnail */}
-        <div className="relative w-full aspect-video overflow-hidden rounded-lg">
+      {/* 🔹 DESKTOP (≥ md) */}
+      <div className="hidden md:block h-full">
+        <div className="rounded-xl overflow-hidden bg-white border border-gray-100 shadow-sm transition-all duration-200 group-hover:shadow-md h-full flex flex-col">
+          
+          {/* Thumbnail */}
+           <div className="relative w-full aspect-video overflow-hidden rounded-lg">
           <img
             src={video.thumbnail}
             alt={video.title}
@@ -77,39 +80,40 @@ export default function VideoCard({ video }) {
           </span>
         </div>
 
-        {/* Content */}
-        <div className="mt-2 space-y-1">
-          <h3 className="text-base font-medium leading-snug line-clamp-2">
-            {video.title}
-          </h3>
+          {/* Content */}
+          <div className="p-3 flex flex-col flex-grow">
+            {/* Title (FIXED HEIGHT) */}
+            <h3 className="font-base text-[15px] font-medium leading-snug line-clamp-2 min-h-[42px] text-gray-900">
+              {video.title}
+            </h3>
 
-          <p className="text-sm text-gray-500">
-            {video.channel === "YTH - Main"
-              ? "आचार्य प्रशांत"
-              : video.channel === "English-Main"
-                ? "Acharya Prashant"
-                : video.channel}
-          </p>
+            {/* Channel */}
+            <p className="text-sm text-gray-500 mt-1 flex items-center gap-1 font-medium font-base">
+              {channelName} <FaCircleCheck className="text-blue-700 w-2.5"/>
+            </p>
 
-          <p className="text-[13px] text-gray-500 font-medium">
-            {video.views} • {video.publishedAt}
-          </p>
+            {/* Views */}
+            <p className="text-xs text-gray-400 font-medium">
+              {video.views} • {video.publishedAt}
+            </p>
 
-          <div className="flex flex-wrap gap-1 mt-1">
-            {video.tags?.slice(0, 2).map((tag, i) => (
-              <span
-                key={i}
-                className="text-xs md:text-sm bg-[#eceff1] px-2 py-0.5 rounded text-[#797677] font-semibold"
-              >
-                {tag}
-              </span>
-            ))}
+            {/* Tags (PUSHED TO BOTTOM) */}
+            <div className="mt-auto pt-2 flex flex-wrap gap-1.5">
+              {video.tags?.slice(0, 2).map((tag, i) => (
+                <span
+                  key={i}
+                  className="text-[12px] bg-blue-50 px-2 py-0.5 rounded-md text-blue-900 font-medium"
+                >
+                  {tag}
+                </span>
+              ))}
 
-            {video.tags?.length > 2 && (
-              <span className="text-xs bg-gray-200 px-2 py-0.5 rounded text-gray-700 font-medium">
-                +{video.tags.length - 2}
-              </span>
-            )}
+              {video.tags?.length > 2 && (
+                <span className="text-[12px] bg-blue-100 px-2 py-0.5 rounded-md text-gray-600 font-medium">
+                  +{video.tags.length - 2}
+                </span>
+              )}
+            </div>
           </div>
         </div>
       </div>
