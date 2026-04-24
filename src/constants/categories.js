@@ -1,0 +1,18 @@
+export const categories = [
+  { label: "All Videos", value: null },
+  { label: "Desires & Attachments", value: "category-desires-attachments" },
+  { label: "Fear & Insecurity", value: "category-fear-insecurity" },
+  { label: "Anger & Conflict", value: "category-anger-conflict" },
+  { label: "Habits & Addictions", value: "category-habits-addictions" },
+  { label: "Love & Relationships", value: "category-love-relationships" },
+  { label: "Career & Education", value: "category-career-education" },
+  { label: "Society & Public Life", value: "category-society-public-life" },
+  { label: "Women & Freedom", value: "category-women-freedom" },
+  { label: "Environment & Climate Crisis", value: "category-environment-climate" },
+  { label: "Science & Technology", value: "category-science-technology" },
+  { label: "Bhagavad Gita", value: "category-bhagavad-gita" },
+  { label: "Beliefs & Religion", value: "category-beliefs-religion" },
+  { label: "Masters & Philosophers", value: "category-masters-philosophers" },
+  { label: "Upanishads", value: "category-upanishads" },
+  { label: "Bhakti & Devotion", value: "category-bhakti-devotion" },
+];
