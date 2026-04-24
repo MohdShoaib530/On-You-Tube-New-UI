@@ -103,7 +103,7 @@ function HomePage() {
           <div className="w-10 h-10 border-4 border-gray-300 border-t-gray-800 rounded-full animate-spin"></div>
         </div>
       ) : (
-        <div className="flex flex-col gap-4 md:grid md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 md:gap-x-4 md:gap-y-6">
+        <div className="flex flex-col gap-4 sm:grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 md:gap-x-4 md:gap-y-6">
           {videos.length === 0 && !loading ? (
             <div className="col-span-full flex flex-col items-center justify-center py-20 text-gray-500 text-center">
               <LuTvMinimalPlay size={40} strokeWidth={2.75} />

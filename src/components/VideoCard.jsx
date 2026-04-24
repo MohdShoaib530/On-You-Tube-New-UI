@@ -10,8 +10,8 @@ export default function VideoCard({ video }) {
 
   return (
     <div className="group w-full h-full flex flex-col">
-      {/* 🔹 MOBILE (< md) */}
-      <div className="md:hidden border-b border-gray-200 py-4">
+      {/* 🔹 MOBILE (< sm) */}
+      <div className="sm:hidden border-b border-gray-200 py-4 font-base">
         <div className="flex gap-3">
           {/* Thumbnail */}
           <div className="relative w-36 h-20 shrink-0 overflow-hidden rounded-lg bg-gray-100">
@@ -33,8 +33,8 @@ export default function VideoCard({ video }) {
                 {video.title}
               </h3>
 
-              <p className="text-xs text-gray-500 mt-0.5">
-                {channelName}
+              <p className="text-xs text-gray-500 mt-0.5 flex gap-1 items-center">
+                 {channelName} <FaCircleCheck className="text-blue-700 w-2.5"/>
               </p>
 
               <p className="text-xs text-gray-400 font-medium">
@@ -49,22 +49,22 @@ export default function VideoCard({ video }) {
           {video.tags?.slice(0, 2).map((tag, i) => (
             <span
               key={i}
-              className="text-[11px] bg-gray-100 px-2 py-0.5 rounded-md text-gray-600 font-medium"
+              className="text-[11px] bg-blue-50 px-2 py-0.5 rounded-md text-blue-900  font-medium"
             >
               {tag}
             </span>
           ))}
 
           {video.tags?.length > 2 && (
-            <span className="text-[11px] bg-gray-200 px-2 py-0.5 rounded-md text-gray-700 font-medium">
+            <span className="text-[11px] bg-blue-50 px-2 py-0.5 rounded-md text-blue-900 font-medium">
               +{video.tags.length - 2}
             </span>
           )}
         </div>
       </div>
 
-      {/* 🔹 DESKTOP (≥ md) */}
-      <div className="hidden md:block h-full">
+      {/* 🔹 DESKTOP (≥ sm) */}
+      <div className="hidden sm:block h-full">
         <div className="rounded-xl overflow-hidden bg-white border border-gray-100 shadow-sm transition-all duration-200 group-hover:shadow-md h-full flex flex-col">
           
           {/* Thumbnail */}

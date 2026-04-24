@@ -46,7 +46,7 @@ const Filters = ({
 
   return (
     <div className="sticky top-0 z-50 bg-white">
-      <div className="flex gap-3 py-4 flex-wrap">
+      <div className="flex gap-3 py-4 flex-wrap whitespace-nowrap">
         {/*  Order */}
         <div className="flex gap-2">
           {ORDER_OPTIONS.map((item) => {
